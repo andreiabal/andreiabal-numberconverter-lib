@@ -1,46 +1,27 @@
-# Conversor de números v.1.0.0
+# A JS library for validate credit card numbers v.1.0.0
 
-**Esta biblioteca se destina à conversão de números em extenso, para uso em aplicações web.**
-Na versão atual é capaz de converter números de 0 a 999999999 para seus equivalentes em extenso, com letras minúsculas.
+**This library is intended for validation of credit card numbers for use in web applications.**
+In the current version it returns true or false for the numbers tested.
 
+## The methods used in the library are:
 
-## Os métodos utilizados na biblioteca são:
+#### **cardValidator(num);**
 
-#### **returnsWritten(num);**
-
-Exemplo de uso:
+Example of usability:
 
 ```
 $node
-> let convert = require("chayote-lib")
-> convert(1); //'um'
+> let validate = require("andreiabal-creditcard-lib")
+> validate(36490102462661); //'true'
 ```
 
 
-## versão 1.0.0
+## version 1.0.0
 
-- funcionalidades: conversão de números de 0 a 999999999;
-- conversão para texto em português brasileiro, com letras minúsculas.
-
-
-## instalação
-
-- você deverá ter o node + npm instalados. Para guia de instalação, visite [o site oficial](https://www.npmjs.com/get-npm).
-- proceda com a instalação com `$npm install chayote-lib`
+- Functionalities: return true or false for entered credit card numbers.
 
 
-## roadmap oficial do projeto
+## installation
 
-#### versão 3.0.0 (sem previsão, aceita-se contribuições)
-- implementação da conversão para bilhões e trilhões;
-- README translated to english;
-- conversão de centavos.
-
-#### versão 2.0.0 (previsão outubro/2018)
-- correção de bugs de espaçamento em números acima de 100000;
-- implementação da opção "letras maiúsculas ou minúsculas";
-- implementação da opção de incluir moeda na conversão.
-
-#### versão 1.0.0 (released)
-- funcionalidades: conversão de números de 0 a 999999999.
-- conversão para texto em português brasileiro, com letras minúsculas.
+- you must have node + npm installed. For installation guide, visit [official website](https://www.npmjs.com/get-npm).
+- proceed with the installation using `$npm install andreiabal-creditcard-lib`

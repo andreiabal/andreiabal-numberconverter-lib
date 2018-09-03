@@ -1,0 +1,30 @@
+{
+  "name": "andreiabal-creditcard-lib",
+  "version": "1.0.0",
+  "description": "A JS library for validate credit card numbers. ",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreiabal/andreiabal-creditcard-lib.git"
+  },
+  "keywords": [
+    "credit-card",
+    "validator"
+  ],
+  "author": "Andreia Balbino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreiabal/andreiabal-creditcard-lib/issues"
+  },
+  "homepage": "https://github.com/andreiabal/andreiabal-creditcard-lib#readme",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  },
+  "devDependencies": {}
+}

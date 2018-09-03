@@ -1,8 +1,3 @@
-var creditCardNumber = prompt("Por favor, digite o número do seu cartão de crédito");
-
-document.getElementById("number").innerHTML = creditCardNumber;
-document.getElementById("result").innerHTML = isValidCard(creditCardNumber);
-
 function isValidCard(numberString) {
 	// Se o valor recebido for string vazia, retorno falso, ou seja, não é valido 
     if (numberString === "") {
