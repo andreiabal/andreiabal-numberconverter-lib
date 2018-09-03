@@ -1,4 +1,4 @@
-function isValidCard(numberString) {
+function cardValidator(numberStrings) {
 	// Se o valor recebido for string vazia, retorno falso, ou seja, não é valido 
     if (numberString === "") {
         return false;

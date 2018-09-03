@@ -10,13 +10,15 @@ const cardValidator = require('../index');
   });*/
   
 
-  /*const cardValidator = require('./index')describe('cardValitor', function () {
+ 
+  /*describe('cardValitor', function () {
  it('throws an error when no params are given', function () {
      const wrongCall = function () {
        cardValidator()
    }    expect(wrongCall).to.throw('não pode ser vazio')
- })
-})const cardValidator = require('./index')describe('cardValitor', function () {
+ })*/
+
+ describe('cardValitor', function () {
  it('works', function () {
    expect(cardValidator()).to.equal(0)
  })
