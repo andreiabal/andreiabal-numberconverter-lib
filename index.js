@@ -1,7 +1,8 @@
 function cardValidator(numberStrings) {
 	// Se o valor recebido for string vazia, retorno falso, ou seja, não é valido 
     if (numberString === "") {
-        return false;
+		return false;
+		//throw Error('bla');
     }
 	
 	// 1. Transformar de string para array de números
