@@ -1,6 +1,7 @@
 # A JS library for validate credit card numbers v.1.0.0
 
 **This library is intended for validation of credit card numbers for use in web applications.**
+
 In the current version it returns true or false for the numbers tested.
 
 ## The methods used in the library are:
