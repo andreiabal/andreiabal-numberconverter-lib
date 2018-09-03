@@ -1,6 +1,6 @@
 # A JS library for validate credit card numbers v.1.0.0
 
-**This library is intended for validation of credit card numbers for use in web applications.**
+**This library is intended for validation of credit card numbers using Luhn's algorithm.**
 
 In the current version it returns true or false for the numbers tested.
 
@@ -12,8 +12,8 @@ Example of usability:
 
 ```
 $node
-> let validate = require("andreiabal-creditcard-lib")
-> validate(36490102462661); //'true'
+> const cardValidator = require("andreiabal-creditcard-lib")
+> cardValidator(5555613252427230); //'true'
 ```
 
 

@@ -1,26 +1,60 @@
-const assert = require('assert');
 const cardValidator = require('../index');
+const assert = require('assert');
+const mocha = require("mocha");
+const chai = require('chai');
+const expect = chai.expect;
 
-/*describe('returnsWritten()', function() {
-  it('deve retornar por extenso', () => {
-    assert.equal(returnsWritten(0), 'zero');
+
+describe('cardValidator', () => {
+
+  describe('when parameter is a string', () => {
+    it('should return an error', () => {
+      let stringParameter = () => { cardValidator('quandonaosaonumeros'); };
+      expect(stringParameter).throw('Erro: digite apenas números.');
+    });
   });
-  it('deve retornar por extenso', () => {
-    assert.equal(returnsWritten(1), 'um');
-  });*/
-  
 
- 
-/*describe('cardValitor()', function () {
- it('throws an error when no params are given', function () {
-     const wrongCall = function () {
-       cardValidator()
-   } 
-   expect(wrongCall).to.throw('não pode ser vazio')
- });*/
+  describe('When the number is an integer but has only one digit', () => {
+    it("should return an error", () => {
+      let insufficientDigit = () => { cardValidator(1); };
+      expect(insufficientDigit).throw("Erro: digite uma quantidade de digitos que seja válida.");
+    });
+  });  
 
- describe('cardValitor', function () {
-  it('works', function () {
-    expect(cardValidator()).to.equal(0)
-  })
- })
+  describe('When the number is an integer and a valid card', () => {
+    it('should return true', () => {
+      expect(cardValidator(42)).to.be.true;
+    });
+  });
+
+  describe('When the number is an integer and a valid card', () => {
+    it('should return true', () => {
+      expect(cardValidator(5555613252427230)).to.be.true;
+    });
+  });
+
+  describe('When the number is an integer and a valid card', () => {
+    it('should return true', () => {
+      expect(cardValidator(4424)).to.equal(true);
+    });
+  });
+
+  describe('When the number is an integer and an invalid card', () => {
+    it('should return false', () => {
+      expect(cardValidator(013)).equal(false);
+    });
+  }); 
+
+  describe('When the number is an integer and an invalid card', () => {
+    it('should return false', () => {
+      expect(cardValidator(5893952979785)).equal(false);
+    });
+  }); 
+
+  describe('When the number is an integer and an invalid card', () => {
+    it('should return false', () => {
+      expect(cardValidator(3638733997900000000)).to.be.false;
+    });
+  }); 
+
+});
