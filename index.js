@@ -1,130 +1,47 @@
-const hundreds = {
-  0: "",
-  1: "cento",
-  2: "duzentos",
-  3: "trezentos",
-  4: "quatrocentos",
-  5: "quinhentos",
-  6: "seiscentos",
-  7: "setecentos",
-  8: "oitocentos",
-  9: "novecentos",
-};
+var creditCardNumber = prompt("Por favor, digite o número do seu cartão de crédito");
 
-const unitaries = {
-  0: "",
-  1: "um",
-  2: "dois",
-  3: "três",
-  4: "quatro",
-  5: "cinco",
-  6: "seis",
-  7: "sete",
-  8: "oito",
-  9: "nove"
-};
+document.getElementById("number").innerHTML = creditCardNumber;
+document.getElementById("result").innerHTML = isValidCard(creditCardNumber);
 
-const dozens = {
-  0: "",
-  1: "dez",
-  2: "vinte",
-  3: "trinta",
-  4: "quarenta",
-  5: "cinquenta",
-  6: "sessenta",
-  7: "setenta",
-  8: "oitenta",
-  9: "noventa",
-};
-
-const elevenToNineteen = {
-  0: "",
-  11: "onze",
-  12: "doze",
-  13: "treze",
-  14: "quatorze",
-  15: "quinze",
-  16: "dezesseis",
-  17: "dezessete",
-  18: "dezoito",
-  19: "dezenove",
-};
-
-function returnsWritten(num){
-  if (num === 0){
-    return "zero";
-  }
-  return returnsMillion(num) + returnsMillions(num) + returnsFullHundred(num);
-}
-
-function returnsFullHundred(num){
-  return returnsHundreds(num) + returnsDozens(num);
-}
-
-function returnsHundreds(num){
-  let hundred = parseInt(num % 1000 / 100);
-  let dozen = num % 100;
-
-  if ((num % 1000) === 0) {
-    return "";
-  }
-  let preNum = "";
-  if (((num % 100) === 0) && (num > 1000)) {
-    preNum = "e ";
-  }
-  if ((num % 100) === 0 && hundred === 1){
-    return preNum + "cem";
-  }
-  let betweenNumbers = " e ";
-  if ((dozen === 0) || (num < 100)){
-    betweenNumbers = "";
-  }
-  return preNum + hundreds[hundred] + betweenNumbers;
-}
-
-function returnsMillions(num){
-  if (num === 1000){
-    return "um mil";
-  }
-  if ((num >= 1000) && (num % 1000000 > 1000)){
-    let betweenNumbers = "";
-    if (num % 1000 !== 0){
-      betweenNumbers = " ";
+function isValidCard(numberString) {
+	// Se o valor recebido for string vazia, retorno falso, ou seja, não é valido 
+    if (numberString === "") {
+        return false;
     }
-    return returnsFullHundred(parseInt(num / 1000)) + " mil" + betweenNumbers;
-  } else {
-    return "";
-  }
+	
+	// 1. Transformar de string para array de números
+	var numberArray = [];
+	// Aqui percorro cada caracter da string
+	for (var i = 0; i < numberString.length; i++) {
+		var charAtPosition = numberString.charAt(i);
+		//Colocar no array o número correspondente ao caracter da string
+		numberArray.push(parseInt (charAtPosition));
+	}
+	// 2. Inverter o array 
+	var invertedNumberArray = numberArray.reverse(); 
+	// 3. Multiplicar por 2 os dígitos que ocupam as posições pares (indice impar)
+	for (var i = 1; i < invertedNumberArray.length; i = i+2) {
+		var element = invertedNumberArray[i];
+		var product = element * 2;
+		var finalResult;	
+		if (product >= 10) {
+			// 3.1 Se o resultado da multiplicação for maior ou igual a 10, subtraio 9 (ex: 18-9 = 9 que é = 1+8)
+			finalResult = product - 9;
+		} else {
+			finalResult = product;
+		}
+		// 3.2 Substituir esses digitos pelo resultado da multiplicação
+		invertedNumberArray[i] = finalResult;
+  	}
+	// 4. Somar todos os números que estão no array = valor total
+	var total = 0;
+	for (var i = 0; i < invertedNumberArray.length; i++) {
+		total = total + invertedNumberArray[i];
+	}
+	// 5. Pegar o resto da divisão por 10 do valor total e verificar se é igual a zero
+	var rest = total % 10;
+	// 6. Sendo igual a zero retorno true; não sendo, retorno false
+	return rest === 0; 
 }
 
-function returnsMillion(num){
-  if (num >= 1000000 && num < 2000000){
-    return returnsFullHundred(parseInt(num / 1000000)) + " milhão ";
-  } 
-  else if (num >= 2000000){
-    return returnsFullHundred(parseInt(num / 1000000)) + " milhões ";
-  } else {
-    return "";
-  }  
-}
-
-function returnsDozens(num){
-  let number = num % 100;
-  let unitary = number % 10;
-  let dozen = parseInt(number % 100 / 10);
-
-  if (number >= 1 && number <= 9){
-    return unitaries[number];
-  }
-
-  if (number >= 11 && number <= 19){
-    return elevenToNineteen[number];
-  } 
-  let betweenNumbers = " e ";
-  if (unitary === 0){
-    betweenNumbers = "";
-  }
-  return dozens[dozen] + betweenNumbers + unitaries[unitary];  
-}
-
-module.exports = returnsWritten;
+module.exports = cardValidator;
