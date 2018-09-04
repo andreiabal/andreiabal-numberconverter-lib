@@ -1,6 +1,6 @@
 const cardValidator = require('../index');
 const assert = require('assert');
-const mocha = require("mocha");
+const mocha = require('mocha');
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -9,15 +9,15 @@ describe('cardValidator', () => {
 
   describe('when parameter is a string', () => {
     it('should return an error', () => {
-      let stringParameter = () => { cardValidator('quandonaosaonumeros'); };
-      expect(stringParameter).throw('Erro: digite apenas números.');
+      let stringParameter = () => { cardValidator('when the parameter is not a number'); };
+      expect(stringParameter).throw('Error: Please, enter only numbers.');
     });
   });
 
   describe('When the number is an integer but has only one digit', () => {
-    it("should return an error", () => {
+    it('should return an error', () => {
       let insufficientDigit = () => { cardValidator(1); };
-      expect(insufficientDigit).throw("Erro: digite uma quantidade de digitos que seja válida.");
+      expect(insufficientDigit).throw('Error: Please, enter a quantity of digits that is valid.');
     });
   });
 

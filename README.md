@@ -6,7 +6,7 @@ In the current version it returns true or false for the numbers tested.
 
 ## The methods used in the library are:
 
-#### **cardValidator(num);**
+#### **cardValidator(numberString);**
 
 Example of usability:
 
@@ -19,7 +19,7 @@ $node
 
 ## version 1.0.0
 
-- Functionalities: return true or false for entered credit card numbers.
+- Functionalities: return true (valid) or false (invalid) for entered credit card numbers.
 
 
 ## installation
@@ -35,4 +35,4 @@ $node
 - Transcribe README to Spanish.
 
 #### version 1.0.0 (released)
-- Functionalities: return true or false for entered credit card numbers.
+- Functionalities: return true (valid) or false (invalid) for entered credit card numbers.

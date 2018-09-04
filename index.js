@@ -1,11 +1,12 @@
 function cardValidator(numberString) { 
+
   if (typeof numberString !== "number") {
-    throw new Error('Erro: digite apenas números.');
+    throw new Error('Error: Please, enter only numbers.');
 	}
 
 	if (numberString.toString().length === 1) {
-		throw new Error('Erro: digite uma quantidade de digitos que seja válida.');  
-	}
+		throw new Error('Error: Please, enter a quantity of digits that is valid.');  
+  }
 
 	/*const numberArray = [];
 	for (let i = 0; i < numberString.length; i++) {
