@@ -26,3 +26,13 @@ $node
 
 - you must have node + npm installed. For installation guide, visit [official website](https://www.npmjs.com/get-npm).
 - proceed with the installation using `$npm install andreiabal-creditcard-lib`
+
+
+## official project roadmap
+
+
+#### version 2.0.0 (October/2018)
+- Transcribe README to Spanish.
+
+#### version 1.0.0 (released)
+- Functionalities: return true or false for entered credit card numbers.

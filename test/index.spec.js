@@ -19,7 +19,7 @@ describe('cardValidator', () => {
       let insufficientDigit = () => { cardValidator(1); };
       expect(insufficientDigit).throw("Erro: digite uma quantidade de digitos que seja válida.");
     });
-  });  
+  });
 
   describe('When the number is an integer and a valid card', () => {
     it('should return true', () => {
