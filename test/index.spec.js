@@ -4,19 +4,18 @@ const mocha = require('mocha');
 const chai = require('chai');
 const expect = chai.expect;
 
-
 describe('cardValidator', () => {
 
-  describe('when parameter is a string', () => {
+  describe('when parameter is empty or a string', () => {
     it('should return an error', () => {
-      let stringParameter = () => { cardValidator('when the parameter is not a number'); };
-      expect(stringParameter).throw('Error: Please, enter only numbers.');
+      let stringOrEmptyParameter = () => { cardValidator('when the parameter is empty or is not a number'); };
+      expect(stringOrEmptyParameter).throw('Error: Please, enter a parameter and use only numbers.');
     });
   });
 
   describe('When the number is an integer but has only one digit', () => {
     it('should return an error', () => {
-      let insufficientDigit = () => { cardValidator(1); };
+      let insufficientDigit = () => { cardValidator(5); };
       expect(insufficientDigit).throw('Error: Please, enter a quantity of digits that is valid.');
     });
   });
