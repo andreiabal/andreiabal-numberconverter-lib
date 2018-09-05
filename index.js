@@ -1,32 +1,19 @@
-function cardValidator(numberString) {
-  if (typeof numberString !== 'number' || numberString === '') {
-    throw new Error('Error: Please, enter a parameter and use only numbers.');
-  }
-  if (numberString.toString().length === 1) {
-    throw new Error('Error: Please, enter a quantity of digits that is valid.');  
-  }
-  const numberArray = [];
-  for (let i = 0; i < numberString.toString().length; i++) {
-    let charAtPosition = numberString.toString().charAt(i);
-    numberArray.push(parseInt (charAtPosition));
-  }
-  const invertedNumberArray = numberArray.reverse(); 
-  for (let i = 1; i < invertedNumberArray.length; i = i+2) {
-    let element = invertedNumberArray[i];
-    let product = element * 2;
-    let finalResult;
-    if (product >= 10) {
-      finalResult = product - 9;
+function intToRoman(int) {
+  if (typeof int !== 'number') {
+    throw new Error('Please, use only numbers.');
+    } else if (int <= 0 || int >= 4000) {
+    throw new Error('Please use numbers between 1 and 3999.');
     } else {
-      finalResult = product;
+  let result = '';  
+  let integer = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];  
+  let roman = ["M", "CM","D","CD","C", "XC", "L", "XL", "X","IX","V","IV","I"];
+  for (let i = 0; i <= integer.length; i++) {  
+    while (int % integer[i] < int) {     
+      result += roman[i];  
+      int -= integer[i]; 
     }
-    invertedNumberArray[i] = finalResult;
   }
-  let total = 0;
-  for (let i = 0; i < invertedNumberArray.length; i++) {
-    total = total + invertedNumberArray[i];
-  }
-  const rest = total % 10;
-  return rest === 0; 
+  return result;
 }
-module.exports = cardValidator;
+}
+module.exports = intToRoman;
