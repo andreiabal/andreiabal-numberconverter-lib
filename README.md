@@ -1,38 +1,44 @@
-# A JS library for validate credit card numbers v.1.0.0
+# A JS library to convert arabic numerals into roman (and vice versa) v.1.0.0
 
-**This library is intended for validation of credit card numbers using Luhn's algorithm.**
+**This library is intended for to convert arabic numerals into roman (and vice versa).**
 
-In the current version it returns true or false for the numbers tested.
+In the current version it returns the roman numeral that corresponds to the arabic number tested (and vice versa), from 1 to 3999.
 
 ## The methods used in the library are:
 
-#### **cardValidator(numberString);**
+#### **intToRoman(int);**
+#### **romanToInt(string);**
 
 Example of usability:
 
 ```
 $node
-> const cardValidator = require("andreiabal-creditcard-lib")
-> cardValidator(5555613252427230); //'true'
+> const intToRoman = require("andreiabal-numberconverter-lib")
+> intToRoman(9); //'IX'
 ```
-
+```
+$node
+> const romanToInt = require("andreiabal-numberconverter-lib")
+> romanToInt('VI'); // 6
+```
 
 ## version 1.0.0
 
-- Functionalities: return true (valid) or false (invalid) for entered credit card numbers.
+- Functionalities: return the roman numeral that corresponds to the arabic number tested (and vice versa).
 
 
 ## installation
 
 - you must have node + npm installed. For installation guide, visit [official website](https://www.npmjs.com/get-npm).
-- proceed with the installation using `$npm install andreiabal-creditcard-lib`
+- proceed with the installation using `$npm install andreiabal-numberconverter-lib`
 
 
 ## official project roadmap
 
 
-#### version 2.0.0 (October/2018)
+#### version 2.0.0 (November/2018)
 - Transcribe README to Spanish.
+- Transforming numbers above 3999.
 
 #### version 1.0.0 (released)
-- Functionalities: return true (valid) or false (invalid) for entered credit card numbers.
+- Functionalities: return the roman numeral that corresponds to the arabic number tested (and vice versa).
