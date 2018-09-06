@@ -1,58 +1,83 @@
-const intToRoman = require('../index');
+const { intToRoman, romanToInt} = require('../index');
 const assert = require('assert');
-const mocha = require('mocha');
-const chai = require('chai');
-const expect = chai.expect;
 
-describe('intToRoman', () => {
+describe('convert()', () => {
 
-  describe('when the number is greater than or equal to 4000 or when it is less than or equal to 0', () => {
-    it('should return an error', () => {
-      assert.equal(intToRoman(0, 4000), 'Please use numbers between 1 and 3999.');
+  describe('intToRoman()', () => {
+    context('when there is no parameter', () => {
+      it('should return an error', () => {
+        assert.equal(intToRoman(''), 'Please, type a number.');
+      });
     });
+      
+    context('when the parameter is not a number', () => {
+      it('should return an error', () => {
+        assert.equal(intToRoman('typing letters'), 'Please, use only numbers.');
+      });
+    });
+      
+    context('when the number is greater than or equal to 4000 or when it is less than or equal to 0', () => {
+      it('should return an error', () => {
+        assert.equal(intToRoman(0), 'Please use numbers between 1 and 3999.');
+      });
+    });
+  
+    context('convert int into roman', () => {
+      it('should return a roman XX for the 20 arabic', () => {
+        assert.equal(intToRoman(20), 'XX');
+      });
+    });
+  
+    context('convert int into roman', () => {
+      it('should return a roman I for the 1 arabic', () => {
+        assert.equal(intToRoman(1), 'I');
+      });
+    });
+  
+    context('convert int into roman', () => {
+      it('should return a roman MMMCMXCIX for the 3999 arabic', () => {
+        assert.equal(intToRoman(3999), 'MMMCMXCIX');
+      });
+    });
+  
+    context('convert int into roman', () => {
+      it('should return a roman MMCCCXVIII for the 2318 arabic', () => {
+        assert.equal(intToRoman(2318), 'MMCCCXVIII');
+      });
+    });
+  })
+
+  describe('romanToInt()', () => {
+
+    context('when there is no parameter', () => {
+      it('should return an error', () => {
+        assert.equal(romanToInt(''), 'Please, type a roman numeral.');
+      });
+    });
+
+    context('when the parameter is not a string of roman numerals', () => {
+      it('should return an error', () => {
+        assert.equal(romanToInt(875), 'Please, use only roman numerals.');
+      });
+    });
+
+    context('convert roman into int', () => {
+      it('should return number 15 for the roman XV', () => {
+        assert.equal(romanToInt('XV'), 15);
+      });
+    });
+
+    context('convert roman into int', () => {
+      it('should return number 3999 for the roman MMMCMXCIX', () => {
+        assert.equal(romanToInt('MMMCMXCIX'), 3999);
+      });
+    });
+
+    context('convert roman into int', () => {
+      it('should return number 446 for the roman CDXLVI', () => {
+        assert.equal(romanToInt('CDXLVI'), 446);
+      });
+    });
+
   });
-
-  /*describe('When the number is an integer but has only one digit', () => {
-    it('should return an error', () => {
-      let insufficientDigit = () => { cardValidator(5); };
-      expect(insufficientDigit).throw('Error: Please, enter a quantity of digits that is valid.');
-    });
-  });
-
-  describe('When the number is an integer and a valid card', () => {
-    it('should return true', () => {
-      expect(cardValidator(42)).to.be.true;
-    });
-  });
-
-  describe('When the number is an integer and a valid card', () => {
-    it('should return true', () => {
-      expect(cardValidator(5555613252427230)).to.be.true;
-    });
-  });
-
-  describe('When the number is an integer and a valid card', () => {
-    it('should return true', () => {
-      expect(cardValidator(4424)).to.equal(true);
-    });
-  });
-
-  describe('When the number is an integer and an invalid card', () => {
-    it('should return false', () => {
-      expect(cardValidator(013)).equal(false);
-    });
-  }); 
-
-  describe('When the number is an integer and an invalid card', () => {
-    it('should return false', () => {
-      expect(cardValidator(5893952979785)).equal(false);
-    });
-  }); 
-
-  describe('When the number is an integer and an invalid card', () => {
-    it('should return false', () => {
-      expect(cardValidator(3638733997900000000)).to.be.false;
-    });
-  }); 
-*/
 });
