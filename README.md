@@ -1,4 +1,4 @@
-# A JS library to convert arabic numerals into roman ones (and vice versa) v.1.0.0
+# A JS library to convert arabic numerals into roman ones (and vice versa) v.1.0.1
 
 **This library is intended for to convert arabic numerals into roman ones (and vice versa).**
 
@@ -21,10 +21,10 @@ $node
 > romanToInt('VI'); // 6
 ```
 
-## version 1.0.0
+## version 1.0.1
 
 - Functionalities: return the roman numeral that corresponds to the arabic number tested (and vice versa).
-
+- READ ME correction. 
 
 ## installation
 
@@ -39,5 +39,10 @@ $node
 - Transcribe README to Spanish.
 - Transforming numerals above 3999.
 
+#### version 1.0.1 (released)
+- Functionalities: return the roman numeral that corresponds to the arabic number tested (and vice versa).
+- READ ME correction. 
+
 #### version 1.0.0 (released)
 - Functionalities: return the roman numeral that corresponds to the arabic number tested (and vice versa).
+

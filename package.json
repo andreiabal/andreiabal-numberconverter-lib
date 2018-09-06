@@ -1,6 +1,6 @@
 {
   "name": "andreiabal-numberconverter-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JS library to convert arabic numerals into roman ones (and vice versa).",
   "main": "index.js",
   "directories": {
