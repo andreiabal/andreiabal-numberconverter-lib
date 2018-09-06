@@ -62,8 +62,8 @@ describe('convert()', () => {
     });
 
     context('convert roman into int', () => {
-      it('should return number 15 for the roman XV or xv', () => {
-        assert.equal(romanToInt('xv'), 15);
+      it('should return number 17 for the roman XVII or xvii.', () => {
+        assert.equal(romanToInt('xvii'), 17);
       });
     });
 
