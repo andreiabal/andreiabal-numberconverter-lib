@@ -13,12 +13,11 @@ Example of usability:
 
 ```
 $node
-> const intToRoman = require("andreiabal-numberconverter-lib")
+> const { intToRoman, romanToInt} = require("andreiabal-numberconverter-lib")
 > intToRoman(9); //'IX'
-```
-```
+
 $node
-> const romanToInt = require("andreiabal-numberconverter-lib")
+> const { intToRoman, romanToInt} = require("andreiabal-numberconverter-lib")
 > romanToInt('VI'); // 6
 ```
 
